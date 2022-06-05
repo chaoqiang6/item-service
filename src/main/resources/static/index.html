@@ -88,6 +88,9 @@
       <el-form-item label="商品名称">
         <el-input v-model="item.name" autocomplete="off"></el-input>
       </el-form-item>
+      <el-form-item label="商品标题">
+        <el-input v-model="item.title" autocomplete="off"></el-input>
+      </el-form-item>
       <el-form-item label="商品分类">
         <el-input v-model="item.category" autocomplete="off"></el-input>
       </el-form-item>
@@ -129,7 +132,7 @@
 <script src="./js/element.js"></script>
 <script>
   // 设置后台服务地址
-  axios.defaults.baseURL = "http://localhost:8081";
+  axios.defaults.baseURL = "http://127.0.0.1:8082";
   axios.defaults.timeout = 3000;
 
   const app = new Vue({

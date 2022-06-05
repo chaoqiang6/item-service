@@ -1,13 +1,39 @@
 server:
-  port: 8081
+  port: 8082
+canal:
+  server: 101.43.215.185:11111
+  # canal集群实例名称
+  destination: heima
 spring:
   application:
     name: itemservice
   datasource:
-    url: jdbc:mysql://192.168.150.101:3306/heima?useSSL=false
+    url: jdbc:mysql://101.43.215.185:3306/heima?useSSL=false
     username: root
-    password: 123
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 100ms
+    cluster:
+      nodes:
+        - 101.43.215.185:7001
+        - 101.43.215.185:7002
+        - 101.43.215.185:7003
+        - 101.43.215.185:8001
+        - 101.43.215.185:8002
+        - 101.43.215.185:8003
+#    lettuce:
+#      pool:
+#        max-active: 8
+#        max-idle: 8
+#        min-idle: 0
+#        max-wait: 100ms
+
 mybatis-plus:
   type-aliases-package: com.heima.item.pojo
   configuration:
